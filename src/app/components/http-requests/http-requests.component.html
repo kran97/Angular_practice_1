@@ -1,0 +1,50 @@
+<div class="container">
+    <form (ngSubmit)="onCreatePost(formData.value)" #formData="ngForm">
+        <div class="form-group">
+            <label for="title"><strong>Title</strong></label>
+            <input type="text" id="title" class="form-control" name="title" ngModel required />
+        </div>
+        <div class="form-group">
+            <label for="content"><strong>Content</strong></label>
+            <textarea id="content" class="form-control" name="content" ngModel required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="formData.invalid">Send Post</button>
+    </form>
+</div>
+
+<hr>
+<div class="container">
+    <button class="btn btn-primary" (click)="onFetchPosts()">Fetch Posts</button>&nbsp; &nbsp; &nbsp;
+    <button class="btn btn-danger" [disabled]="loadedPosts.length < 1" (click)="onClearPosts()">Clear Posts</button>
+</div>
+<div>
+    <!-- <ng-container *ngIf="postError">
+        <div class="alert alert-danger">
+            <h2>Error Occurred!</h2>
+            <p>{{postError}}</p>
+        </div>
+    </ng-container> -->
+    <ng-template appDynamicComponentHelper></ng-template>
+    <ng-container *ngIf="loadedPosts.length === 0 && !isFetching && !isError">
+        <p>No posts available!</p>
+    </ng-container>
+    <ng-container *ngIf="isFetching && !isError">
+        <h1>Loading...</h1>
+    </ng-container>
+    <ng-container *ngIf="isError">
+        <div class="alert alert-danger">
+            <h2>Error Occurred!</h2>
+            <p>{{isError}}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isError"> <!-- || postError-->
+        <button class="btn btn-danger" (click)="handleError()">Okay</button>
+    </ng-container>
+    <ul class="list-group" *ngIf="loadedPosts.length > 0 && !isFetching && !isError">
+        <li class="list-group-item" *ngFor="let post of loadedPosts">
+            <h3>{{post.title}}</h3>
+            <p>{{post.content}}</p>
+            <button class="btn btn-danger" (click)="deletePost(post.id!)">Delete</button>
+        </li>
+    </ul>
+</div>

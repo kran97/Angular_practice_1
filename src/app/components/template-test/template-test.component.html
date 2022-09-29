@@ -1,0 +1,5 @@
+<div *appCustomTemplateOutlet="userTemplate; context: {user: 'Karan'}"></div>
+
+<ng-template #userTemplate let-name="user">
+    <h1>Hi! My name is {{name}}</h1>
+</ng-template>

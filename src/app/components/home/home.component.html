@@ -1,0 +1,37 @@
+<div class="outer">
+    <div class="inner"></div>
+</div>
+
+<app-child-one [userTemplate]="user" [name]="'Karan'">
+    <p #content app>Hi this is content of child one.</p>
+    <p class="app1">Hi this is <strong>Second</strong> content of child one.</p>
+</app-child-one>
+
+<ng-template [ngIf]="bool"><h3>This is being done by ngIf.</h3></ng-template>
+<div *ngIf="bool"><h3>This is being done by ngIf.</h3></div>
+
+<button btn btn-primary (click)="increment()">increment</button> => {{count}}<br>
+<button btn btn-primary (click)="detach()">Detach</button><br>
+<button btn btn-primary (click)="reattach()">Reattach</button><br>
+<button btn btn-primary (click)="detectChanges()">Detect Changes</button><br>
+<button btn btn-primary (click)="markForCheck()">Mark For Check</button><br>
+
+<!--New Feature in Angular 14 -->
+<!-- <div *ngFor="let item of items; template: tpl">
+    <p>{{item}}</p>
+</div>
+
+<ng-template #tpl let-item>
+    <h4>{{item}}</h4>
+</ng-template> -->
+
+<ng-template #user let-name="username" let-hobbies="userHobbies">
+    <h1>{{name}}</h1>
+    <ul>
+        <li *ngFor="let hobby of hobbies">{{hobby}}</li>
+    </ul>
+</ng-template>
+
+<!-- Can use div or ng-conatiner -->
+<!-- <div *ngTemplateOutlet="user; context: {username: 'Karan', userHobbies: ['Workout', 'Guitar']}"></div> -->
+<ng-container *ngTemplateOutlet="user; context: {username: 'Karan', userHobbies: ['Workout', 'Guitar']}"></ng-container>

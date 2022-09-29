@@ -1,0 +1,15 @@
+form {
+    margin-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.errMsg {
+    color: red;
+}
+
+.placement {
+    display: block;
+}

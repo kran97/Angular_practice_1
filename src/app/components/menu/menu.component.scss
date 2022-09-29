@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 0 0 50px 0;
+}
+
+.btn-block {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    text-decoration: none;
+    color: black;
+    margin-top: 0.5rem;
+
+    &:active {
+        background-color: black;
+        color: white;
+    }
+}

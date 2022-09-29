@@ -1,0 +1,5 @@
+<p #view1>child-one works!</p>
+<ng-content select="[app]"></ng-content>
+<ng-content select=".app1"></ng-content>
+
+<div *ngTemplateOutlet="userTemplate; context: {username: 'Karan', userHobbies: ['Swimming', 'Gym']}"></div>

@@ -1,0 +1,25 @@
+.outer {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    
+    // This is to center align the inner div
+    // position: relative;
+
+    // This is to center align the inner div.
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+}
+
+.inner {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+
+    // This is to center align the inner div
+    // position: absolute;
+    // left: 25%;
+    // top: 25%;
+}
