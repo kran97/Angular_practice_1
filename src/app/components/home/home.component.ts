@@ -20,21 +20,21 @@ export class HomeComponent implements OnInit, AfterContentInit, AfterContentChec
   count = 0;
 
   ngOnInit(): void {
-    // console.log("AppComponent OnInit --> " + this.cont);
+    // console.log("HomeComponent OnInit --> " + this.cont);
     //Produces Error
-    // console.log("AppComponent AfterViewInit --> " + this.vont.nativeElement.textContent);
+    // console.log("HomeComponent AfterViewInit --> " + this.vont.nativeElement.textContent);
   }
 
   ngAfterContentInit(): void {
-    // console.log("AppComponent AfterContentInit --> " + this.cont);
+    // console.log("HomeComponent AfterContentInit --> " + this.cont);
   }
 
   ngAfterContentChecked(): void {
-    // console.log("AppComponent AfterContentChecked");
+    // console.log("HomeComponent AfterContentChecked");
   }
 
   ngAfterViewInit(): void {
-    // console.log("AppComponent AfterViewInit --> " + this.view.nativeElement.textContent);
+    // console.log("HomeComponent AfterViewInit --> " + this.view.nativeElement.textContent);
   }
 
   detach() {

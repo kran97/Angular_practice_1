@@ -15,11 +15,13 @@ nav {
         // position: relative;
         height: 25px;
         left: 25px;
+        align-self: center;
     }
 
     .welcome-container {
         display: flex;
         gap: 20px;
+        align-items: center;
         .welcome-img {
             height: 6vh;
             width: 3vw;
