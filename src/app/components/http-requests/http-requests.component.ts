@@ -97,6 +97,7 @@ export class HttpRequestsComponent implements OnInit, OnDestroy {
     // const alertComp = new AlertComponent();
 
     /** Right way (USED IN ANGULAR 9 AND ABOVE) */
+    // this.dynamicCompHelper?.viewContRef.clear();
     // const componentRef = this.dynamicCompHelper?.viewContRef.createComponent(AlertComponent);
 
     /** Right way (USED TILL ANGULAR 8) */

@@ -1,11 +1,14 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, ElementRef, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, ElementRef, HostBinding, Input, NgZone, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit, AfterContentInit, AfterContentChecked, AfterViewInit {
+
+  // @HostBinding('class') class = 'app-home-class'; // applies class on the entire component (selector).
 
   bool: boolean = false;
 
@@ -15,7 +18,7 @@ export class HomeComponent implements OnInit, AfterContentInit, AfterContentChec
   @ContentChild('content') cont!: ElementRef;
   @ViewChild('content') view!: ElementRef;
 
-  constructor(private changeDetecRef: ChangeDetectorRef) {}
+  constructor(private changeDetecRef: ChangeDetectorRef, private ngZone: NgZone) {}
 
   count = 0;
 

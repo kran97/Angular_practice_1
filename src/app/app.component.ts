@@ -12,7 +12,8 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Router, RoutesRecognized } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
 import { AuthenticationService } from './services/authentication.service';
 
 @Component({
@@ -36,8 +37,9 @@ export class AppComponent
 
   isAuthenticated = false;
   userSub!: Subscription;
+  isActive = false;
 
-  constructor(private authServ: AuthenticationService, private changeDetectRef: ChangeDetectorRef) {
+  constructor(private authServ: AuthenticationService, private changeDetectRef: ChangeDetectorRef, private router: Router) {
     // console.log("Constructor");
   }
 
@@ -51,6 +53,10 @@ export class AppComponent
     // let pro = await this.promise;
     // console.log("OnInit, right after promise resolves ", pro);
     // console.log("On Init");
+
+    // this.router.events.pipe(
+      // filter(event => event instanceof RoutesRecognized)
+    // ).subscribe((event) => console.log(event));
 
     this.userSub = this.authServ.userSubject.subscribe((user) => {
       this.isAuthenticated = !!user;
